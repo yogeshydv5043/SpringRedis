@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
         return userDto;
     }
 
-    @Cacheable(value = "user", key = "#user.uuid")
+    @Cacheable(value = "user", key = "#uuid")
     @Override
     public UserDto get(UUID uuid) {
         User user = userRepository.findById(uuid).orElseThrow(() -> new ResourceNotFoundException("user not found with is ID : " + uuid + " !!"));
@@ -86,7 +86,7 @@ public class UserServiceImpl implements UserService {
         return userDto;
     }
 
-    @CacheEvict(value = "user", key = "#user.uuid")
+    @CacheEvict(value = "user", key = "#uuid")
     @Override
     public void delete(UUID uuid) {
         User user = userRepository.findById(uuid).orElseThrow(() -> new ResourceNotFoundException("user not found with is ID : " + uuid + " !!"));

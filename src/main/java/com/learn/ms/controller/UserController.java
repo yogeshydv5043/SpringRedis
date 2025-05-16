@@ -4,7 +4,6 @@ package com.learn.ms.controller;
 import com.learn.ms.dto.UserDto;
 import com.learn.ms.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,6 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/users")
-@CacheConfig(cacheNames = "user")
 public class UserController {
 
     private final UserService userService;
